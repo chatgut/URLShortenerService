@@ -18,7 +18,7 @@ public class RedisController {
     @ResponseBody
     public ResponseEntity shortenUrl(@RequestBody String url){
         Url shortUrlEntry = urlManager.shortenUrl(url);
-        return ResponseEntity.ok(url);
+        return ResponseEntity.ok(shortUrlEntry);
     }
 
     @RequestMapping(value = "/{key}", method = RequestMethod.GET)
