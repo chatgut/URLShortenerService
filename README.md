@@ -5,6 +5,6 @@ docker pull redis:latest
 docker run -d --name=redis -p 6379:6379 redis
 
 To Post in insomnia to the Redis server.
-http://localhost:8080/urlShortener/{{short-name-on-url}}
+http://localhost:8080/urlShortener/{{the-long-name-on-url}}
 Body: plain
-The long url in the Body
+The short url in the Body
