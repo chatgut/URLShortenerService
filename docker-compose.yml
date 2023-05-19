@@ -4,6 +4,8 @@ services:
     build: .
     depends_on:
       - redis
+    environment:
+      REDIS_URL: redis
     ports:
       - "8004:8080"
   redis:
