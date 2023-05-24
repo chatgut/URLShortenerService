@@ -21,7 +21,7 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
             - name: REDIS_URL
-              value: localhost
+              value: redis
           ports:
             - containerPort: 8080
               name: urlshortener
@@ -41,3 +41,4 @@ spec:
     - name: http
       port: 8080 # The port that the service is running on in the cluster
       targetPort: 8080 # The port exposed by the pod, containerport
+  type: LoadBalancer

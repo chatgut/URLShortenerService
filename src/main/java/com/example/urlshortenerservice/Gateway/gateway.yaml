@@ -28,7 +28,7 @@ spec:
     - name: urlshortener
       match:
         - uri:
-            prefix: /urlshortener
+            prefix: /urlShortener
       route:
         - destination:
-            host: urlshortenerservice.default.svc.cluster.local
+            host: urlshortener.default.svc.cluster.local
