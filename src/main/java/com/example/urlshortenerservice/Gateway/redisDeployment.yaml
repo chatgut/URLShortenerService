@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  labels:
+    app: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      name: redis
+      labels:
+        app: redis
+    spec:
+      containers:
+        - name: redis
+          image: redis:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 6379
+              name: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: default
+  labels:
+    app: redis
+    service: redis
+spec:
+  selector:
+    app: redis
+  ports:
+    - name: http
+      port: 6379 # The port that the service is running on in the cluster
+      targetPort: 6379 # The port exposed by the pod, containerport

@@ -25,7 +25,10 @@ public class RedisController {
     public ResponseEntity<UrlShort> shortenUrl(@RequestBody UrlLong url, UriComponentsBuilder uriComponentsBuilder) {
         Url shortUrlEntry = urlManager.shortenUrl(url.getUrl());
         var shorturl = new UrlShort();
-        shorturl.setShort_url(uriComponentsBuilder.path("urlShortener/").path(shortUrlEntry.getKey()).build().toUriString());
+        shorturl.setShort_url(uriComponentsBuilder.path("urlShortener/")
+                .path(shortUrlEntry.getKey())
+                .build()
+                .toUriString());
         return ResponseEntity.ok(shorturl);
     }
 
