@@ -19,26 +19,18 @@ spec:
         - name: redis
           image: redis:latest
           imagePullPolicy: IfNotPresent
-          env:
-            - name: MASTER
-              value: "true"
           ports:
             - containerPort: 6379
               name: redis
+      restartPolicy: Always
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: redis
-  namespace: default
-  labels:
-    app: redis
-    service: redis
 spec:
+  ports:
+    - port: 6379
   selector:
     app: redis
-  ports:
-    - name: http
-      port: 6379 # The port that the service is running on in the cluster
-      targetPort: 6379 # The port exposed by the pod, containerport
   type: LoadBalancer

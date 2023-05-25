@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: urlshortener
-          image: urlshortenerservice-url:latest
+          image: xcandyfun/url_shortener_service:v2.2
           imagePullPolicy: IfNotPresent
           env:
             - name: REDIS_URL
