@@ -32,3 +32,10 @@ spec:
       route:
         - destination:
             host: urlshortener.default.svc.cluster.local
+    - name: auth
+      match:
+        - uri:
+            prefix: /api/auth
+      route:
+        - destination:
+            host: auth-service.default.svc.cluster.local
